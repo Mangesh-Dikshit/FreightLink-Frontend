@@ -1,0 +1,47 @@
+<br><br>
+
+
+<label for="source">Source: </label>
+<select [(ngModel)]="source" id="source">
+    @for(ct of cities;track ct){
+    <option [value]="ct"> {{ct}} </option>
+    }
+</select>
+
+
+<br><br>
+
+<label for="destination">Destination: </label>
+<select [(ngModel)]="destination" id="source">
+    @for(ct of cities;track ct){
+    <option [value]="ct"> {{ct}} </option>
+    }
+</select>
+
+<br><br>
+
+<button (click)="calculateRoute()">Submit</button>
+
+
+@if(isRouteVisible){
+    <div class="card">
+        <h2>FREIGHT ROUTE</h2>
+        @for(rt of routeResult?.route;track rt;let last = $last){
+        <span> {{rt}} </span>
+
+        @if(!last){
+        <span> &rarr; </span>
+        }
+        }
+    </div>
+}
+
+
+
+
+
+<!-- <div>
+    <p> Booking ID: 1 </p>
+    <p> Current Location: {{routeResult?.route?.at(0)}} </p>
+    <p> Status: IN_TRANSIT</p>
+</div> -->
