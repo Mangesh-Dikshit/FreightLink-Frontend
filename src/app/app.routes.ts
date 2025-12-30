@@ -4,9 +4,10 @@ import { Landing } from './landing/landing';
 import { BookFreight } from './book-frieght/book-frieght';
 import { FreightDetails } from './freight-details/freight-details';
 import { AdminRouteTracking } from './admin-route-tracking/admin-route-tracking';
+import { HomeComponent } from './pages/home/home';
 
 export const routes: Routes = [
-  { path: '', component: Landing },              // default home
+  { path: '', component: HomeComponent },              // default home
   {path:'routetracking',component:RouteTracking},
   { path: 'book-freight', component: BookFreight },
   { path: 'freight-details', component: FreightDetails },

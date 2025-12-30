@@ -1,0 +1,81 @@
+<div class="home-container">
+<!-- LEFT SIDE -->
+<div class="left-panel">
+<!-- IMAGE ONLY -->
+<img
+     src="/transport.png"
+     alt="Freight Transport"
+     class="freight-img"
+   />
+<!-- TEXT BELOW IMAGE -->
+<p class="image-caption">
+     FreightLink – Freight Booking & Shipment Management System
+</p>
+</div>
+<!-- RIGHT SIDE -->
+<div class="right-panel">
+<!-- LOGIN FORM -->
+<div class="form-box" *ngIf="showLogin">
+<h2>Login</h2>
+<input
+       type="email"
+       placeholder="Email"
+       [(ngModel)]="email"
+     />
+<input
+       type="password"
+       placeholder="Password"
+       [(ngModel)]="password"
+     />
+<button class="btn-primary" (click)="login()">
+       Login
+</button>
+<p class="link-text">
+       Not registered?
+<span (click)="showRegisterForm()">Register here</span>
+</p>
+</div>
+<!-- REGISTER FORM -->
+<div class="form-box" *ngIf="!showLogin">
+<h2>Register</h2>
+<input
+       type="text"
+       placeholder="Name"
+       [(ngModel)]="name"
+     />
+<input
+       type="email"
+       placeholder="Email"
+       [(ngModel)]="email"
+     />
+<input
+       type="tel"
+       placeholder="Contact"
+       [(ngModel)]="contact"
+     />
+<input
+       type="password"
+       placeholder="Password"
+       [(ngModel)]="password"
+     />
+<select [(ngModel)]="role">
+<option value="">Select Role</option>
+<option value="user">User</option>
+<option value="admin">Admin</option>
+</select>
+<select [(ngModel)]="preferredMode">
+<option value="">Preferred Mode</option>
+<option value="road">Road</option>
+<option value="rail">Rail</option>
+<option value="sea">Sea</option>
+</select>
+<button class="btn-primary" (click)="register()">
+       Register
+</button>
+<p class="link-text">
+       Already have an account?
+<span (click)="showLoginForm()">Login here</span>
+</p>
+</div>
+</div>
+</div>
