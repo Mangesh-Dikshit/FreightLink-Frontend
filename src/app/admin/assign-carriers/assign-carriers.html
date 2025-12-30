@@ -1,0 +1,60 @@
+<div class="admin-layout">
+ 
+
+  <app-sidebar [class.closed]="!isSidebarOpen"></app-sidebar>
+ 
+  <div class="main-area">
+ 
+
+   <app-header (menuClick)="toggleSidebar()"></app-header>
+ 
+    <main class="content">
+      <h2>Assign Carriers</h2>
+ 
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Booking ID</th>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Select Carrier</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+ 
+        <tbody>
+          <tr *ngFor="let booking of bookings">
+            <td>{{ booking.id }}</td>
+            <td>{{ booking.origin }}</td>
+            <td>{{ booking.destination }}</td>
+ 
+            <td>
+              <select [(ngModel)]="booking.carrierId">
+                <option value="">Select</option>
+                <option *ngFor="let carrier of carriers" [value]="carrier.id">
+                  {{ carrier.name }}
+                </option>
+              </select>
+            </td>
+ 
+            <td>
+              <button type="button" (click)="assignCarrier(booking)">
+                Assign
+              </button>
+            </td>
+          </tr>
+ 
+          <tr *ngIf="bookings.length === 0">
+            <td colspan="5" class="empty">
+              All bookings have been assigned
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+ 
+
+    <app-footer></app-footer>
+ 
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="admin-layout">
+ 
+  <!-- Sidebar -->
+  <app-sidebar [class.closed]="!isSidebarOpen"></app-sidebar>
+ 
+  <!-- Main Area -->
+  <div class="main-area">
+ 
+    <!-- Header -->
+    <app-header (menuClick)="toggleSidebar()"></app-header>
+ 
+    <!-- Content -->
+    <main class="content">
+      <div class="cards">
+ 
+        <!-- Assign Carriers -->
+        <div class="card">
+          <h3>Assign Carriers</h3>
+          <p>Allocate carriers to freight bookings</p>
+          <a class="action-btn" routerLink="admin/assign-carriers">Manage</a>
+        </div>
+ 
+        <!-- Monitor Shipments -->
+        <div class="card">
+          <h3>Monitor Shipments</h3>
+          <p>Track shipment status and delays</p>
+          <a class="action-btn" routerLink="/admin/monitor-shipments">View</a>
+        </div>
+ 
+        <!-- Analytics -->
+        <div class="card">
+          <h3>View Analytics</h3>
+          <p>Analyze freight performance and revenue</p>
+          <a class="action-btn" routerLink="/analytics">Open</a>
+        </div>
+ 
+      </div>
+    </main>
+ 
+    <!-- Footer -->
+    <app-footer></app-footer>
+ 
+  </div>
+</div>
