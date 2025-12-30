@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { Header } from '../../shared/header/header';
-import { Footer } from '../../shared/footer/footer';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Sidebar } from '../../shared/sidebar/sidebar';
+import { Header } from '../shared/header/header';
+import { Footer } from '../shared/footer/footer';
+import { Sidebar } from '../shared/sidebar/sidebar';
+
+
  
 interface Booking {
   id: string;
