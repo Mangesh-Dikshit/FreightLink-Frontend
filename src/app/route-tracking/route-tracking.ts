@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { Graph } from '../core/graph/graph';
-import { RouteResult } from '../core/models/route.model';
+
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ShipmentService } from '../core/services/shipment.service';
+
+import { Shipment } from '../core/models/shipment.model';
 
 @Component({
   selector: 'app-route-tracking',
@@ -11,25 +13,20 @@ import { CommonModule } from '@angular/common';
   styleUrl: './route-tracking.css',
 })
 export class RouteTracking {
-  cities:string[]=[];
-  source:string='';
-  destination:string='';
+  
 
-  routeResult?:RouteResult;
+  shipment?:Shipment;
 
-  constructor(private graph:Graph){}
+  constructor(private shipmentService:ShipmentService){}
 
   ngOnInit():void{
-    this.cities = this.graph.getCities();
+    this.loadShipment(1);
   }
 
-  isRouteVisible:boolean = false;
-  
-  calculateRoute(){
-    this.isRouteVisible = true;
-    this.routeResult = this.graph.getRoute(this.source,this.destination);
-    // console.log(this.routeResult);
+  loadShipment(bookingId:number){
+    this.shipment = this.shipmentService.getShipmentByBooking(bookingId);
   }
+
 
   
 

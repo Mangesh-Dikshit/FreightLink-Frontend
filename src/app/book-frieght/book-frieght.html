@@ -1,0 +1,84 @@
+<section class="book-freight-page">
+ <div>
+   <form #myForm="ngForm" (ngSubmit)="submitBooking(myForm)" class="form-card">
+  <h2>Book Freight</h2>
+  <p class="subtitle">
+    Enter shipment details to book freight services
+  </p>
+
+  <!-- Transport Mode -->
+  <div class="form-group">
+    <label for="mode">Transport Mode</label>
+    <select
+      id="mode"
+      [(ngModel)]="mode"
+      name="mode"
+      required
+    >
+      <option value="">Select Mode</option>
+      <option value="ROAD">Road</option>
+      <option value="RAIL">Rail</option>
+      <option value="SEA">Sea</option>
+    </select>
+  </div>
+
+  <!-- Origin -->
+  <div class="form-group">
+    <label for="origin">Origin</label>
+    <select
+      id="origin"
+      [(ngModel)]="origin"
+      name="origin"
+      required
+    >
+      <option value="">Select Origin</option>
+      @for(city of cities;track city){
+        <option [value]="city"> {{city}} </option>
+      }
+      
+    </select>
+  </div>
+
+  <!-- Destination -->
+  <div class="form-group">
+    <label for="destination">Destination</label>
+    <select
+      id="destination"
+      [(ngModel)]="destination"
+      name="destination"
+      required
+    >
+      <option value="">Select Destination</option>
+      <option value="">Select Origin</option>
+      @for(city of cities;track city){
+        <option [value]="city"> {{city}} </option>
+      }
+    </select>
+  </div>
+
+  <!-- Weight -->
+  <div class="form-group">
+    <label for="weight">Weight (kg)</label>
+    <input
+      id="weight"
+      type="number"
+      [(ngModel)]="weight"
+      name="weight"
+      placeholder="Enter weight"
+      required
+    />
+  </div>
+
+  <!-- Error message -->
+  <div *ngIf="!myForm.valid && myForm.submitted" class="error-msg">
+    Please fill all required fields before submitting.
+  </div>
+
+  <!-- Submit Button -->
+  <button class="primary-btn" type="submit">
+    Book Freight
+  </button>
+  <button class="secondary-btn" routerLink="/" type="button"> Back to Home </button>
+</form>
+</div>
+</section>

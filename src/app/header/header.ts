@@ -1,12 +1,19 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-header',
-  imports: [RouterLink],
+  standalone: true,
+  imports:[CommonModule,RouterModule],
   templateUrl: './header.html',
-  styleUrl: './header.css',
+  styleUrls: ['./header.css'],
 })
 export class Header {
+  isDetailsPage = false;
 
+  /*constructor(private router: Router) {
+    this.router.events.subscribe(() => {
+      this.isDetailsPage = this.router.url === '/details';
+    });
+  }*/
 }

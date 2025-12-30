@@ -11,5 +11,7 @@ export interface Booking{
   origin: string;
   destination: string;
 
+  weight: number;
+
   status: BookingStatus;
 }

@@ -1,32 +1,18 @@
-<br><br>
+@if(shipment){
 
 
-<label for="source">Source: </label>
-<select [(ngModel)]="source" id="source">
-    @for(ct of cities;track ct){
-    <option [value]="ct"> {{ct}} </option>
-    }
-</select>
+<div class="card">
 
+    <h3>Shipment ID: {{shipment.shipmentId}}</h3>
 
-<br><br>
+    <div class="topCard">
+        <p> <b>Current Location: </b> {{shipment.currentLocation}} </p>
+        <p> <b>Last Updated: </b> {{shipment.lastUpdated | date}} </p>
+        <p> <b>Price: </b> {{shipment.price}} </p>
+    </div>
 
-<label for="destination">Destination: </label>
-<select [(ngModel)]="destination" id="source">
-    @for(ct of cities;track ct){
-    <option [value]="ct"> {{ct}} </option>
-    }
-</select>
-
-<br><br>
-
-<button (click)="calculateRoute()">Submit</button>
-
-
-@if(isRouteVisible){
-    <div class="card">
-        <h2>FREIGHT ROUTE</h2>
-        @for(rt of routeResult?.route;track rt;let last = $last){
+    <div class="bottomCard">
+        @for(rt of shipment.routePath;track rt;let last = $last){
         <span> {{rt}} </span>
 
         @if(!last){
@@ -34,14 +20,5 @@
         }
         }
     </div>
+</div>
 }
-
-
-
-
-
-<!-- <div>
-    <p> Booking ID: 1 </p>
-    <p> Current Location: {{routeResult?.route?.at(0)}} </p>
-    <p> Status: IN_TRANSIT</p>
-</div> -->

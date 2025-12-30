@@ -1,0 +1,26 @@
+ @if(adminShipment){
+
+
+<div class="card">
+
+    <h3>Shipment ID: {{adminShipment.shipmentId}}</h3>
+
+    <div class="topCard">
+        <button (click)="nextCheckpoint()">Go to Next Check Point</button>
+        <p> <b>Current Location: </b> {{adminShipment.currentLocation}} &nbsp;  </p>
+        <p> <b>Last Updated: </b> {{adminShipment.lastUpdated | date}} </p>
+        <p> <b>Price: </b> {{adminShipment.price}} </p>
+    </div>
+
+    <div class="bottomCard">
+        @for(rt of adminShipment.routePath;track rt;let last = $last){
+        <span> {{rt}} </span>
+
+        @if(!last){
+        <span> &rarr; </span>
+        }
+        }
+    </div>
+</div>
+} 
+

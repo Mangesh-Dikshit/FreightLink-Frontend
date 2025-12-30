@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Booking,BookingStatus } from '../models/booking.model';
+import { ShipmentService } from './shipment.service';
 
 @Injectable({
   providedIn: 'root',
@@ -7,26 +8,27 @@ import { Booking,BookingStatus } from '../models/booking.model';
 export class BookingService {
 
 
-  private bookings: Booking[] = [
-    {
-      bookingId: 1,
-      customerId: 1,
-      mode: 'ROAD',
-      origin: 'Pune',
-      destination: 'Mumbai',
-      status: 'BOOKED',
-    },
-    {
-      bookingId: 2,
-      customerId: 2,
-      mode: 'RAIL',
-      origin: 'Delhi',
-      destination: 'Jaipur',
-      status: 'BOOKED',
-    }
-  ];
+  private bookings: Booking[] = [];
+
  
-  constructor() {}
+  constructor(private shipmentService:ShipmentService) {}
+
+  
+
+  createBooking(data: Omit<Booking, 'bookingId' | 'status'>): Booking {
+    const booking: Booking = {
+      bookingId: this.bookings.length+1,
+      status: 'BOOKED',
+      ...data
+    };
+ 
+    this.bookings.push(booking);
+ 
+    // ⬇ Automatically create shipment
+    this.shipmentService.createShipmentFromBooking(booking);
+ 
+    return booking;
+  }
  
 
   getAllBookings(): Booking[] {
@@ -45,11 +47,7 @@ export class BookingService {
  
 
 
-  addBooking(booking: Booking): void {
-    booking.bookingId = this.bookings.length + 1;
-    booking.status = 'BOOKED';
-    this.bookings.push(booking);
-  }
+  
  
 
   updateBookingStatus(id: number, newStatus: BookingStatus): void {
