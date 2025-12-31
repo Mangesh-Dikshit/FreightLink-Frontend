@@ -1,9 +1,31 @@
+/* Layout Wrapper: Same as Dashboard */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-body {
+  display: flex;
+  flex: 1; /* Fills height below header */
+  overflow: hidden;
+}
+
+.content-area {
+  flex: 1; /* Takes remaining width next to sidebar */
+  overflow-y: auto;
+  background: #f4f6f8;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Updated Section: Centers form in the content-area */
 .book-freight-page {
-  min-height: 80vh;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f4f6f8;
+  padding: 20px;
 }
 
 .form-card {
@@ -14,6 +36,8 @@
   border-radius: 14px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
+
+/* ... Keep your existing .form-group, .primary-btn, and .secondary-btn styles ... */
 
 .form-card h2 {
   text-align: center;
@@ -48,12 +72,6 @@
   font-size: 14px;
 }
 
-.form-group input:focus,
-.form-group select:focus {
-  border-color: #1d4ed8;
-  outline: none;
-}
-
 .primary-btn {
   width: 100%;
   margin-top: 10px;
@@ -66,14 +84,6 @@
   cursor: pointer;
 }
 
-.primary-btn:hover {
-  background: #1e40af;
-}
-.error-msg {
-  color: red;
-  font-weight: bold;
-  margin-top: 10px;
-}
 .secondary-btn {
   width: 100%;
   margin-top: 12px;
@@ -86,6 +96,16 @@
   cursor: pointer;
 }
 
-.secondary-btn:hover {
-  background: #d1d5db;
+.field-error {
+  color: #d93025;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.error-msg { 
+  color: #d93025; 
+  font-size: 16px; 
+  font-weight: 600; 
+  margin-bottom: 20px; 
+  text-align: center;
 }

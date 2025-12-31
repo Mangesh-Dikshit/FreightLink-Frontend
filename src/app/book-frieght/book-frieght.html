@@ -1,79 +1,106 @@
-<section class="book-freight-page">
- <div>
-   <form #myForm="ngForm" (ngSubmit)="submitBooking(myForm)" class="form-card">
-  <h2>Book Freight</h2>
-  <p class="subtitle">
-    Enter shipment details to book freight services
-  </p>
+<div class="dashboard-container">
+  <app-customer-header (menuClick)="toggleSidebar()"></app-customer-header>
+  
+  <div class="main-body">
+    <app-sidebar [isSidebarOpen]="isSidebarOpen"></app-sidebar>
 
-  <!-- Transport Mode -->
-  <div class="form-group">
-    <label for="mode">Transport Mode</label>
-    <select
-      id="mode"
-      [(ngModel)]="bookingData.mode"
-      name="mode"
-      required
-    >
-      <option value="">Select Mode</option>
-      <option value="Road">Road</option>
-      <option value="Rail">Rail</option>
-      <option value="Sea">Sea</option>
-      <option value="Air">Air</option>
-    </select>
+    <main class="content-area">
+      <section class="book-freight-page">
+        <form #myForm="ngForm" (ngSubmit)="submitBooking(myForm)" class="form-card">
+      <h2>Book Freight</h2>
+      <p class="subtitle">
+        Enter shipment details to book freight services
+      </p>
+
+      <!-- Transport Mode -->
+      <div class="form-group">
+        <label for="mode">Transport Mode</label>
+        <select
+          id="mode"
+          [(ngModel)]="bookingData.mode"
+          name="mode"
+          required
+          #mode="ngModel"
+          [ngClass]="{'invalid-field': mode.invalid && (mode.dirty || mode.touched || myForm.submitted)}"
+        >
+          <option value="">Select Mode</option>
+          <option value="Road">Road</option>
+          <option value="Rail">Rail</option>
+          <option value="Sea">Sea</option>
+        </select>
+        <div class="field-error" *ngIf="mode.invalid && (mode.dirty || mode.touched || myForm.submitted)">
+          Transport mode is required.
+        </div>
+      </div>
+
+      <!-- Origin -->
+      <div class="form-group">
+        <label for="origin">Origin</label>
+        <select
+          id="origin"
+          [(ngModel)]="bookingData.origin"
+          name="origin"
+          required
+          #origin="ngModel"
+          [ngClass]="{'invalid-field': origin.invalid && (origin.dirty || origin.touched || myForm.submitted)}"
+        >
+          <option value="">Select Origin</option>
+          <option *ngFor="let place of places" [value]="place">{{ place }}</option>
+        </select>
+        <div class="field-error" *ngIf="origin.invalid && (origin.dirty || origin.touched || myForm.submitted)">
+          Origin is required.
+        </div>
+      </div>
+
+      <!-- Destination -->
+      <div class="form-group">
+        <label for="destination">Destination</label>
+        <select
+          id="destination"
+          [(ngModel)]="bookingData.destination"
+          name="destination"
+          required
+          #destination="ngModel"
+          [ngClass]="{'invalid-field': destination.invalid && (destination.dirty || destination.touched || myForm.submitted)}"
+        >
+          <option value="">Select Destination</option>
+          <option *ngFor="let place of places" [value]="place">{{ place }}</option>
+        </select>
+        <div class="field-error" *ngIf="destination.invalid && (destination.dirty || destination.touched || myForm.submitted)">
+          Destination is required.
+        </div>
+      </div>
+
+      <!-- Weight -->
+      <div class="form-group">
+        <label for="weight">Weight (kg)</label>
+        <input
+          id="weight"
+          type="number"
+          [(ngModel)]="bookingData.weight"
+          name="weight"
+          placeholder="Enter weight"
+          required
+          #weight="ngModel"
+          [ngClass]="{'invalid-field': weight.invalid && (weight.dirty || weight.touched || myForm.submitted)}"
+        />
+        <div class="field-error" *ngIf="weight.invalid && (weight.dirty || weight.touched || myForm.submitted)">
+          Weight is required.
+        </div>
+      </div>
+
+      <!-- Global error -->
+      <div *ngIf="!myForm.valid && myForm.submitted" class="error-msg">
+        Please fill all required fields before submitting.
+      </div>
+
+      <!-- Buttons -->
+      <button class="primary-btn" type="submit">Book Freight</button>
+      <button class="secondary-btn" routerLink="/" type="button">Back to Home</button>
+    </form>
+      </section>
+
+      <app-customer-footer></app-customer-footer>
+    </main>
   </div>
-
-  <!-- Origin -->
-  <div class="form-group">
-    <label for="origin">Origin</label>
-    <select
-      id="origin"
-      [(ngModel)]="bookingData.origin"
-      name="origin"
-      required
-    >
-      <option value="">Select Origin</option>
-      <option *ngFor="let place of places" [value]="place">{{ place }}</option>
-    </select>
-  </div>
-
-  <!-- Destination -->
-  <div class="form-group">
-    <label for="destination">Destination</label>
-    <select
-      id="destination"
-      [(ngModel)]="bookingData.destination"
-      name="destination"
-      required
-    >
-      <option value="">Select Destination</option>
-      <option *ngFor="let place of places" [value]="place">{{ place }}</option>
-    </select>
-  </div>
-
-  <!-- Weight -->
-  <div class="form-group">
-    <label for="weight">Weight (kg)</label>
-    <input
-      id="weight"
-      type="number"
-      [(ngModel)]="bookingData.weight"
-      name="weight"
-      placeholder="Enter weight"
-      required
-    />
-  </div>
-
-  <!-- Error message -->
-  <div *ngIf="!myForm.valid && myForm.submitted" class="error-msg">
-    Please fill all required fields before submitting.
-  </div>
-
-  <!-- Submit Button -->
-  <button class="primary-btn" type="submit">
-    Book Freight
-  </button>
-  <button class="secondary-btn" routerLink="/" type="button"> Back to Home </button>
-</form>
 </div>
-</section>

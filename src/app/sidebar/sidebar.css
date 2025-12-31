@@ -1,0 +1,37 @@
+.sidebar {
+  width: 220px;
+  height: 100%;
+  background-color: #1e3a8a;
+  color: white;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.collapsed {
+  width: 0px; /* Change to 70px if you want icons to show while collapsed */
+}
+
+.menu {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  white-space: nowrap; /* Prevents text from wrapping during animation */
+}
+
+.menu li { margin: 10px 0; }
+
+.menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.menu a:hover, .menu a.active {
+  background-color: #2563eb;
+}

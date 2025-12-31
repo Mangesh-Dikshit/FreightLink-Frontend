@@ -1,8 +1,14 @@
 <header class="header">
-  <div class="logo">FreightLink</div>
- 
-  <!--<nav class="nav">
-    <a routerLink="/">Home</a>
-    <a routerLink="/login">Login</a>
-  </nav>-->
+  <div class="left">
+    <!-- Sidebar toggle icon -->
+    <i class="pi pi-bars menu-btn" (click)="toggleSidebar()" title="Toggle Sidebar"></i>
+
+    <!-- FreightLink heading -->
+    <span class="logo">FreightLink</span>
+  </div>
+
+  <div class="right" *ngIf="showUserActions">
+    <span class="customer">Customer</span>
+    <button class="logout" (click)="logout()">Logout</button>
+  </div>
 </header>
