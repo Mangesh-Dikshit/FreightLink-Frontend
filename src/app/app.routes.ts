@@ -9,9 +9,11 @@ export const routes: Routes = [
   { path: 'freight-details', component: FreightDetails },
 ]; */
 import { Routes } from '@angular/router';
-import { BookFreight } from './book-frieght/book-frieght';
-import { FreightDetails } from './freight-details/freight-details';
-import { CustomerDashboard } from './customer-dashboard/customer-dashboard'; 
+import { BookFreight } from './customer/book-frieght/book-frieght';
+import { FreightDetails } from './customer/freight-details/freight-details';
+import { CustomerDashboard } from './customer/customer-dashboard/customer-dashboard';
+
+
 export const routes: Routes = [
   
  

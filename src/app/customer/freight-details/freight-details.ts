@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Header } from '../header/header';
-import { Footer } from '../footer/footer';
+import { Footer } from '../customer/footer/footer';
 import { Sidebar } from '../sidebar/sidebar';
 
 @Component({
