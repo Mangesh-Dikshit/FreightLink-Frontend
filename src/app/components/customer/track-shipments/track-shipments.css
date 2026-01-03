@@ -1,0 +1,74 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.content-area {
+  flex: 1;
+  overflow-y: auto;
+  background: #f4f6f8;
+  display: flex;
+  flex-direction: column;
+}
+
+.details-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+   padding: 20px; 
+}
+
+
+
+
+ .card {
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 2rem;
+
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+h2{
+    text-align: center;
+}
+
+.topCard{
+  text-align: justify;
+  width: 40vh;
+}
+
+.bottomCard{
+  margin: 3rem;
+  text-align: center;
+}
+
+
+.dataCard{
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 60vh;
+  
+} 
+
+
+

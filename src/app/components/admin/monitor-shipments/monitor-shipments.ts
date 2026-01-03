@@ -4,8 +4,9 @@ import { Header } from '../shared/header/header';
 import { Sidebar } from '../shared/sidebar/sidebar';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Shipment } from '../../core/models/shipment.model';
-import { ShipmentService } from '../../core/services/shipment.service';
+import { Shipment } from '../../../core/models/shipment.model';
+import { ShipmentService } from '../../../core/services/shipment.service';
+
 
 
 @Component({

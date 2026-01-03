@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { Graph } from '../../core/graph/graph';
-import { RouteResult } from '../../core/models/route.model';
-import { Booking } from '../../core/models/booking.model';
-import { FreightMode } from '../../core/models/booking.model';
-import { BookingService } from '../../core/services/booking.service';
+import { Graph } from '../../../core/graph/graph';
+import { RouteResult } from '../../../core/models/route.model';
+import { Booking } from '../../../core/models/booking.model';
+import { FreightMode } from '../../../core/models/booking.model';
+import { BookingService } from '../../../core/services/booking.service';
 
 import { Header } from '../shared/header/header';
 import { Footer } from '../shared/footer/footer';
@@ -38,39 +38,22 @@ export class BookFreight {
   }
 
 
-  // bookingData = {
-  //   origin: '',
-  //   destination: '',
-  //   mode: '',
-  //   weight: '',
-  //   status: 'Confirmed'
-  // };
-
-  
-
-  
-  bookingDetails!: Booking;
-
-  origin: string = '';
-  destination: string = '';
-  mode: FreightMode = 'ROAD';
-  weight: number = 0;
-
   submitBooking(form: NgForm): void {
+    console.log(form.value);
     const bookingData = {
       customerId: 1,
-      mode: this.mode,
-      origin: this.origin,
-      destination: this.destination,
-      weight: this.weight,
+      mode: form.value.mode,
+      origin: form.value.origin,
+      destination: form.value.destination,
+      weight: form.value.weight,
     };
 
     const booking = this.bookingService.createBooking(bookingData);
 
-    this.router.navigate(['/']);
+    // this.router.navigate(['/']);
 
-    // this.router.navigate(['/freight-details'],{
-    //   queryParams: {...booking}
-    // });
+    this.router.navigate(['/freight-details'],{
+      queryParams: {...booking}
+    });
   }
 }
