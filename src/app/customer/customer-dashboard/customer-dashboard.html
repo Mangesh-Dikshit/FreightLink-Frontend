@@ -1,0 +1,33 @@
+<div class="dashboard-wrapper">
+  <app-customer-header (menuClick)="toggleSidebar()"></app-customer-header>
+  
+  <div class="admin-layout">
+    <app-sidebar [isSidebarOpen]="isSidebarOpen"></app-sidebar>
+
+    <div class="content-container">
+      <main class="content">
+        <div class="cards">
+          <div class="card hover-card" routerLink="/book-freight">
+            <h3>Book Freight</h3>
+            <p>Book road, rail, and sea freight services easily.</p>
+            <button class="btn-primary">Book</button>
+          </div>
+
+          <div class="card hover-card" routerLink="/track-shipments">
+            <h3>Track Shipment</h3>
+            <p>Track shipments in real-time with status updates.</p>
+            <button class="btn-primary">Track</button>
+          </div>
+
+          <div class="card hover-card" routerLink="/invoices">
+            <h3>Invoices & Payments</h3>
+            <p>Generate invoices and manage payments securely.</p>
+            <button class="btn-primary">View</button>
+          </div>
+        </div>
+      </main>
+
+      <app-customer-footer></app-customer-footer>
+    </div>
+  </div>
+</div>

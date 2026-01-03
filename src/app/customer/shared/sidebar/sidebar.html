@@ -1,0 +1,28 @@
+<aside class="sidebar" [class.collapsed]="!isSidebarOpen">
+  <ul class="menu">
+    <li>
+      <a routerLink="/" routerLinkActive="active">
+        <!-- <i class="pi"></i> -->
+        <span *ngIf="isSidebarOpen">DashBoard</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/book-freight" routerLinkActive="active">
+        <i class="pi pi-shopping-cart"></i>
+        <span *ngIf="isSidebarOpen">Book Freight</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/track-shipments" routerLinkActive="active">
+        <i class="pi pi-truck"></i>
+        <span *ngIf="isSidebarOpen">Track Shipment</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/invoices" routerLinkActive="active">
+        <i class="pi pi-file"></i>
+        <span *ngIf="isSidebarOpen">Invoices & Payments</span>
+      </a>
+    </li>
+  </ul>
+</aside>

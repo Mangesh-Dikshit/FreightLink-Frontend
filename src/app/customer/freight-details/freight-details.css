@@ -1,0 +1,71 @@
+/* Layout Wrapper: Consistent with Dashboard and Book Freight */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.content-area {
+  flex: 1;
+  overflow-y: auto;
+  background: #f4f6f8;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Center the card inside the content area */
+.details-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Card styling */
+.details-card {
+  background-color: #ffffff;
+  padding: 40px 50px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+.details-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Better readability for details */
+  gap: 12px;
+  margin: 24px 0;
+  padding: 0 20px;
+}
+
+.details-text p {
+  margin: 0;
+  font-size: 16px;
+  color: #374151;
+}
+
+.secondary-btn {
+  width: 100%;
+  padding: 12px;
+  background: #e5e7eb;
+  color: #1f2937;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.secondary-btn:hover {
+  background: #d1d5db;
+}

@@ -1,7 +1,14 @@
-<div class="details-wrapper">
-  <section class="details-card">
-    <h2>Booking Confirmation</h2>
-    <div class="details-text">
+<div class="dashboard-container">
+  <app-customer-header (menuClick)="toggleSidebar()"></app-customer-header>
+
+  <div class="main-body">
+    <app-sidebar [isSidebarOpen]="isSidebarOpen"></app-sidebar>
+
+    <main class="content-area">
+      <div class="details-wrapper">
+        <section class="details-card">
+          <h2>Booking Confirmation</h2>
+           <div class="details-text">
       <p><strong>Order ID:</strong> {{ bookingData.orderId }}</p>
       <p><strong>Mode:</strong> {{ bookingData.mode }}</p>
       <p><strong>Origin:</strong> {{ bookingData.origin }}</p>
@@ -11,5 +18,9 @@
     </div>
    <!-- <button routerLink="/" class="back-button">Back to Home</button> -->
     <button class="secondary-btn" routerLink="/" type="button"> Back to Home </button>
-  </section>
+        </section>
+      </div>
+      <app-customer-footer></app-customer-footer>
+    </main>
+  </div>
 </div>

@@ -1,0 +1,54 @@
+.dashboard-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.admin-layout {
+  display: flex;
+  flex-direction: row; /* Sidebar and Content side-by-side */
+  flex: 1;
+  overflow: hidden;
+  background-color: #f4f7fb;
+}
+
+.content-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.content {
+  flex: 1;
+  padding: 40px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  border-left: 6px solid #2563eb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
